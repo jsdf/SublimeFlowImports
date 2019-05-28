@@ -1,0 +1,4 @@
+{
+  "flow_bin": "flow",
+  "ignored_dirs": ["node_modules"]
+}

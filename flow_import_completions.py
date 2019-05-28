@@ -1,5 +1,4 @@
-# Extends Sublime Text autocompletion to find matches in all open
-# files. By default, Sublime only considers words from the current file.
+# Adds JS import statement autocompletion using AST information from Flow
 
 import sublime_plugin
 import sublime
@@ -10,8 +9,6 @@ import os
 import json
 from pathlib import Path
 
-
-from os.path import basename
 pp = pprint.PrettyPrinter(indent=4)
 
 def log(*args):
@@ -41,7 +38,7 @@ class FlowImports(sublime_plugin.EventListener):
         if not view.match_selector(locations[0], "source.js"):
             log (view.scope_name(locations[0]) + " doesnt match")
             return None
-        dump('view',view)
+        # dump('view',view)
         dump('prefix',prefix)
         dump('locations',locations)
         dump('line', view.line(locations[0]))
